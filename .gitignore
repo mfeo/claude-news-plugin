@@ -1,0 +1,9 @@
+# compiled binary (built on demand via run.sh self-heal or PostInstall hook)
+bin/
+plugin/skills/news/bin/
+
+# OS / editor
+.DS_Store
+
+# local Claude Code settings (machine-specific)
+.claude/

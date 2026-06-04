@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostInstall": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"${CLAUDE_PLUGIN_ROOT}/skills/news/src\" && go build -o ../bin/news-fetch . 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

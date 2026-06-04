@@ -1,0 +1,13 @@
+{
+  "name": "mfeo-claude-news-plugin",
+  "owner": {
+    "name": "Jerry Wu"
+  },
+  "plugins": [
+    {
+      "name": "news",
+      "source": "./",
+      "description": "Fetch latest hacker/AI/security/tech RSS news and summarise in Traditional Chinese"
+    }
+  ]
+}
