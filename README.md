@@ -131,7 +131,6 @@ claude-news-plugin/
 │   └── feeds.json
 └── plugin/              # the plugin itself (installed by marketplace)
     ├── .claude-plugin/plugin.json
-    ├── hooks/hooks.json # PostInstall: pre-build the binary (best-effort)
     └── skills/news/     # bundled skill + src for self-build
 ```
 

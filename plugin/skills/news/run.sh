@@ -25,8 +25,7 @@ for arg in "$@"; do
 done
 
 # Self-healing: build the binary from bundled src/ on first run (cross-platform).
-# Avoids depending on plugin PostInstall hooks, which aren't available on all
-# Claude Code versions.
+# Keeps install hook-free, so the skill works on any Claude Code version.
 if [[ ! -x "$BIN" ]]; then
   if [[ -f "${DIR}/src/main.go" ]] && command -v go >/dev/null 2>&1; then
     echo "news-fetch: first run, building binary with go..." >&2
