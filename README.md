@@ -48,7 +48,7 @@ Requires [Go](https://go.dev/dl/) on the target machine (the binary is built loc
 so it works on any OS/arch).
 
 ```
-/plugin marketplace add <your-marketplace-repo>
+/plugin marketplace add mfeo/claude-news-plugin
 /plugin install news
 ```
 
@@ -120,6 +120,8 @@ claude-news-plugin/
 ├── README.md            # this file
 ├── RESEARCH.md          # feed sources + reader comparison + verification log
 ├── feeds.json           # feed list (4 topics, verified)
+├── .claude-plugin/      # marketplace manifest (must be at repo root)
+│   └── marketplace.json #   → points at ./plugin
 ├── src/                 # Go source (gofeed concurrent fetcher)
 │   ├── go.mod
 │   └── main.go
@@ -127,8 +129,8 @@ claude-news-plugin/
 │   ├── SKILL.md
 │   ├── run.sh
 │   └── feeds.json
-└── plugin/              # plugin packaging (marketplace install)
-    ├── .claude-plugin/{plugin,marketplace}.json
+└── plugin/              # the plugin itself (installed by marketplace)
+    ├── .claude-plugin/plugin.json
     ├── hooks/hooks.json # PostInstall: pre-build the binary (best-effort)
     └── skills/news/     # bundled skill + src for self-build
 ```

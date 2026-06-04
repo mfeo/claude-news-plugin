@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "news",
-      "source": "./",
+      "source": "./plugin",
       "description": "Fetch latest hacker/AI/security/tech RSS news and summarise in Traditional Chinese"
     }
   ]
