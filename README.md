@@ -70,7 +70,8 @@ Then `/news` is available in any session.
 
 ## Feeds
 
-Edit `feeds.json` to add/remove sources. Each entry:
+Edit `skill/feeds.json` to add/remove sources (the plugin ships its own copy at
+`plugin/skills/news/feeds.json` — keep the two in sync). Each entry:
 
 ```json
 { "category": "ai", "source": "OpenAI News", "url": "https://openai.com/news/rss.xml" }
@@ -105,7 +106,7 @@ The Go binary is a standalone tool:
 
 ```bash
 cd src && go build -o ../bin/news-fetch .
-./bin/news-fetch -feeds ./feeds.json -category ai -since 24h -max 25
+./bin/news-fetch -feeds ./skill/feeds.json -category ai -since 24h -max 25
 ```
 
 Flags: `-feeds`, `-category` (comma-separated or `all`), `-since` (Go duration),
@@ -119,7 +120,6 @@ Flags: `-feeds`, `-category` (comma-separated or `all`), `-since` (Go duration),
 claude-news-plugin/
 ├── README.md            # this file
 ├── RESEARCH.md          # feed sources + reader comparison + verification log
-├── feeds.json           # feed list (4 topics, verified)
 ├── .claude-plugin/      # marketplace manifest (must be at repo root)
 │   └── marketplace.json #   → points at ./plugin
 ├── src/                 # Go source (gofeed concurrent fetcher)
@@ -128,7 +128,7 @@ claude-news-plugin/
 ├── skill/               # the skill, ready to drop into ~/.claude/skills/news
 │   ├── SKILL.md
 │   ├── run.sh
-│   └── feeds.json
+│   └── feeds.json       # the feed list (edit here to add/remove sources)
 └── plugin/              # the plugin itself (installed by marketplace)
     ├── .claude-plugin/plugin.json
     └── skills/news/     # bundled skill + src for self-build
